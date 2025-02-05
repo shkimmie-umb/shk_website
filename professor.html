@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Data Analysis on RateMyProfessor</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/professor_style.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
+					<h1><strong>I am SangHyuk Kim</strong>, a current Ph.D. student<br />
+					at UMass Boston<br />
+					MPsych group <a href="https://mpsych.org/">Group Website</a>.</h1>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2>Data Analysis on Factors Determining Professors' Salary</h2>
+							<h4>Tools:<br>
+								Data processing - JS, Pandas in Colab<br>
+								Visualization - Bokeh, Matplotlib, and Holoview</h4>
+							
+						</header>
+						
+						<h2>Introduction</h2>
+						<p>We have vast amounts of faculty salary data linked to RateMyProfessor, but it is difficult to get insights at a glance.
+							For example, even if you are curious about the distribution of salaries by department or position, 
+							it is very difficult to grasp related information only with data listed in numbers.
+							From now on, we intend to visualize the trend of annual salary information by category and convert it
+							into meaningful data that can be understood at a glance.
+
+							Specifically, the following is a summary of what we are curious about.
+							<ol>
+								<li>Is there a correlation between professor ratings and salary?</li>
+								<li>Is there a correlation between the salary according to the position of the professor?</li>
+								<li>Is there a difference in annual salary depending on the department within the same school?</li>
+							  </ol>
+							
+							
+							
+						</p>
+
+						<h2>Data Exploration</h2>
+						
+						<iframe src="./graphs/default_data.html" width="800" height="310" scrolling="auto"></iframe>
+
+						<p>The original data contains a lot of data that we won't use. 
+						Let's preprocess the data to make it easier to see.</p>
+
+						<iframe src="./graphs/default_data_simplified.html" width="800" height="310" scrolling="auto"></iframe>
+
+						<p>Now, only data related to the curiosity we are trying to solve remains. With this data, let's visualize the salary correlation.</p>
+
+						<p>1. Is there a correlation between professor ratings and salary?</p>
+						<p>We tried to express the annual salary by simplifying the rating from 0 to 5 into a total of six.
+							Since the RateMyProfessor rating comes out to 1 decimal place, it was floored to the nearest rating and we visualized the annual salary.
+							As a result, although the annual salary does not differ very significantly depending on the rating, it seemed to have some correlation.</p>
+						
+
+						
+						<iframe src="./graphs/ratingvssalary.html" width="700" height="300" scrolling="auto"></iframe>
+
+						<p>If so, will the position of the professor have a greater influence on contributing to the salary?
+							To find the answer to this question, we visualized the annual salary of professors in the Department of Computer Science according to their positions.</p>
+
+						<p>2. Is there a correlation between the salary according to the position of the professor?</p>
+						
+						<iframe src="./graphs/positionvssalary.html" width="700" height="300" scrolling="auto"></iframe>
+
+						<p>It was confirmed that the difference in annual salary according to the professor's 
+							position was noticeably evident compared to the annual salary graph compared to the 
+							professor's ratings.</p>
+
+						<p>From now on, we will visualize whether there is a difference in the salary of a professor depending on the department.</p>
+
+						<p>3. Is there a difference in annual salary depending on the department within the same school?</p>
+
+						<iframe src="./graphs/departmentvssalary.html" width="700" height="300" scrolling="auto"></iframe>
+
+						<p>It was confirmed that there was also a difference in the annual salary of professors depending on 
+							the department. There was a clear difference between STEM departments and non-STEM departments. 
+							Currently, the graph is containing mainly STEM departments, so a lot of non-STEM is missing, 
+							but if non-STEM departments are added, the trend of annual salary changes is expected to be more prominent.</p>
+
+						<br></br>
+						<p>However, the graphs we have made so far only show the average value, and the distribution is unknown.
+							Therefore, let's visualize the distribution by each category using a box graph.</p>
+						
+						<iframe src="./graphs/departmentvssalarybox.html" width="700" height="350" scrolling="auto"></iframe>
+
+						<p>The average annual salary by department was not significantly different, but as you can see now, 
+							the difference in the distribution of the maximum minimum annual salary by department was confirmed, 
+							and the Computer Science department, which was not confirmed in the previous graph, 
+							showed the largest distribution difference.</p>
+
+						<iframe src="./graphs/positionvssalarybox.html" width="700" height="350" scrolling="auto"></iframe>
+
+						<p>Salary distribution by position is clearer. Not only is there a clear difference in average annual salary by position, 
+							but the distribution of annual salary by position can better understand the trend of annual salary by 
+							position.</p>
+
+						<iframe src="./graphs/ratingvssalarybox.html" width="700" height="350" scrolling="auto"></iframe>
+
+						<p>Interestingly, salary versus professor's grade showed a correlation, but a high salary 
+							was not always guaranteed. We found that professor's grade did not have a significant effect 
+							on annual salary.</p>
+
+						<h2>Conclusion</h2>
+
+						<p>We did a visualization analysis of the faculty's grade, position, and 
+							affiliated department's teaching salary. As a result, it was confirmed that 
+							there was a significant difference between the position and the affiliated 
+							department, and that the professor's grade was also slightly affected. 
+							Through the process of discovering meaningful facts from such a vast amount 
+							of data, I realized the importance of data analysis through visualization. 
+							As for the next project plan, we will deal with more aesthetic graphs and data 
+							analysis in more diverse fields.</p>
+						
+						<!-- <p>My recent work</p>
+						<ul class="actions">
+							<li><a href="#" class="button">Learn More</a></li>
+						</ul> -->
+					</section>
